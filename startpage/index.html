@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>緑星ポータル — 2000年代風スタートページ</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        borderRadius: {
+          none: '0px',
+          DEFAULT: '0px',
+          sm: '0px',
+          md: '0px',
+          lg: '0px',
+          xl: '0px',
+          '2xl': '0px',
+          '3xl': '0px',
+          full: '0px',
+        },
+        extend: {
+          colors: {
+            mintbg: '#f3f8f3',
+            mintcard: '#f8fbf8',
+            mintbar: '#e5efe4',
+            sage: {
+              light: '#c5d6c3',
+              DEFAULT: '#8eab8b',
+              dark: '#6e8c6b',
+              deep: '#546e52',
+              ink: '#2b3a29',
+            },
+          },
+          fontFamily: {
+            retro: ['"Liberation Sans"', '"MS PGothic"', '"Hiragino Kaku Gothic ProN"', '"Yu Gothic"', 'Arial', 'sans-serif'],
+            mono2k: ['"Liberation Mono"', '"MS Gothic"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* Regla estricta: cero esquinas redondeadas (0px) en absolutamente todos los elementos */
+    *, *::before, *::after {
+      border-radius: 0px !important;
+    }
+
+    /* Fondo idéntico al wallpaper con estrellas concéntricas verde salvia */
+    body {
+      background-color: #f3f8f3;
+      color: #2b3a29;
+      font-family: "Liberation Sans", "MS PGothic", "Hiragino Kaku Gothic ProN", "Yu Gothic", Arial, sans-serif;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%238eab8b' stroke-opacity='0.24'%3E%3Cpolygon points='60,14 73,43 105,47 81,69 87,100 60,84 33,100 39,69 15,47 47,43' stroke-width='9' stroke-linejoin='miter'/%3E%3Cpolygon points='60,44 65,55 77,57 68,65 70,77 60,71 50,77 52,65 43,57 55,55' fill='%238eab8b' fill-opacity='0.24' stroke='none'/%3E%3Cpolygon points='170,124 183,153 215,157 191,179 197,210 170,194 143,210 149,179 125,157 157,153' stroke-width='9' stroke-linejoin='miter'/%3E%3Cpolygon points='170,154 175,165 187,167 178,175 180,187 170,181 160,187 162,175 153,167 165,165' fill='%238eab8b' fill-opacity='0.24' stroke='none'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 220px 220px;
+    }
+
+    /* Bordes clásicos tipo Netscape / Windows 2000 / Web 1.0 */
+    .retro-box {
+      border: 1px solid #6e8c6b;
+      box-shadow: 3px 3px 0px #c5d6c3;
+    }
+
+    .retro-inset {
+      border-top: 2px solid #546e52;
+      border-left: 2px solid #546e52;
+      border-right: 2px solid #c5d6c3;
+      border-bottom: 2px solid #c5d6c3;
+      background-color: #ffffff;
+    }
+
+    .retro-button {
+      border-top: 2px solid #c5d6c3;
+      border-left: 2px solid #c5d6c3;
+      border-right: 2px solid #546e52;
+      border-bottom: 2px solid #546e52;
+      background-color: #8eab8b;
+      color: #ffffff;
+    }
+
+    .retro-button:hover {
+      background-color: #6e8c6b;
+    }
+
+    .retro-button:active {
+      border-top: 2px solid #546e52;
+      border-left: 2px solid #546e52;
+      border-right: 2px solid #c5d6c3;
+      border-bottom: 2px solid #c5d6c3;
+      transform: translate(1px, 1px);
+    }
+
+    /* Ritmo tipográfico japonés nítido */
+    .jp-body-text {
+      text-align: justify;
+      text-justify: inter-ideograph;
+      line-height: 1.95;
+      letter-spacing: 0.04em;
+    }
+
+    /* Separador horizontal fino clásico de los 2000 */
+    .retro-hr {
+      border: 0;
+      height: 1px;
+      background: #8eab8b;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center font-retro antialiased selection:bg-sage-dark selection:text-white px-3 sm:px-6 py-5 sm:py-8">
+
+  <!-- Barra superior de búsqueda en Google estilo portal japonés 2000 (hasta arriba) -->
+  <header class="w-full max-w-3xl mb-5">
+    <div class="bg-mintcard retro-box">
+      <!-- Barra de título estilo ventana clásica -->
+      <div class="bg-sage-dark text-white px-3 py-1.5 flex items-center justify-between text-xs border-b border-sage-deep">
+        <div class="flex items-center gap-2 font-bold tracking-wider">
+          <span>★ 緑星ウェブ検索ポータル</span>
+        </div>
+        <div class="font-mono2k text-[11px] flex items-center gap-2">
+          <span id="jp-date">2004年00月00日(月)</span>
+          <span>|</span>
+          <span id="jp-clock">00:00:00</span>
+        </div>
+      </div>
+
+      <!-- Formulario funcional apuntando directamente a Google -->
+      <form
+        action="https://www.google.com/search"
+        method="get"
+        class="p-3 sm:p-4 bg-mintbar/70 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5"
+      >
+        <label for="search-input" class="text-xs sm:text-sm font-bold text-sage-deep whitespace-nowrap flex items-center gap-1.5">
+          <span class="inline-block w-2.5 h-2.5 bg-sage-dark"></span>
+          Google 検索:
+        </label>
+
+        <input
+          type="text"
+          name="q"
+          id="search-input"
+          autocomplete="off"
+          autofocus
+          required
+          placeholder="キーワードを入力してください..."
+          aria-label="Google 検索"
+          class="flex-1 px-2.5 py-1.5 text-sm sm:text-base text-sage-ink placeholder-sage-dark/60 retro-inset focus:outline-none"
+        />
+
+        <button
+          type="submit"
+          class="px-5 py-1.5 text-sm font-bold tracking-widest retro-button cursor-pointer whitespace-nowrap"
+        >
+          検索
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- Contenedor principal enmarcado estilo 2000 con el texto largo y poético en japonés -->
+  <main class="w-full max-w-3xl mb-6">
+    <article class="bg-mintcard retro-box">
+      <!-- Sub-cabecera técnica del documento -->
+      <div class="bg-mintbar px-4 py-2 border-b border-sage flex flex-wrap items-center justify-between gap-2 text-xs text-sage-deep">
+        <span>文書番号: No.0014 / 若草色の備忘録</span>
+        <span>文字コード: UTF-8 / 言語: 日本語</span>
+      </div>
+
+      <div class="p-5 sm:p-8 md:p-10">
+        <!-- Encabezado del texto -->
+        <header class="mb-6">
+          <div class="text-xs text-sage-dark tracking-widest mb-1">
+            [ 静かな午後の覚え書き ]
+          </div>
+          <h1 class="text-xl sm:text-2xl font-bold text-sage-deep tracking-wider">
+            若草色の星屑と、古い画面の向こう側
+          </h1>
+        </header>
+
+        <hr class="retro-hr mb-6" />
+
+        <!-- Texto extenso en japonés con ritmo vertical limpio -->
+        <div class="space-y-5 text-sm sm:text-[15px] text-sage-ink jp-body-text">
+          <p>
+            午後の柔らかな日差しが窓辺に差し込む時間、モニターの淡い光の中で静かにページが開くのを待つ瞬間があります。かつて私たちが初めてネットワークの海に触れたころ、画面の向こう側にはいつも、誰かが丁寧に言葉を紡いで作った小さな部屋が存在していました。派手な装飾はなくとも、整然と並んだ細い枠線と、目に優しい薄緑色の背景、そして規則正しく配置された星模様が、訪れる人に不思議な安心感を与えてくれたものです。
+          </p>
+
+          <p>
+            ブラウン管や初期の液晶ディスプレイが発する微かな熱気とともに、キーボードを叩く音だけが静かな部屋に響きます。検索窓にひとつの単語を打ち込み、エンターキーを押すその一瞬には、まだ見ぬ知識や誰かの日記に出会うための小さな冒険心が詰まっていました。情報の波が今よりもずっと穏やかだったあの時代、ひとつの文章を最初から最後までゆっくりと読み通すことは、日常の中の大切な習慣でした。
+          </p>
+
+          <hr class="retro-hr my-6" />
+
+          <p>
+            若草色の壁に浮かぶ二重の星形は、まるで夜空の地図に記された道しるべのようです。急ぎ足で過ぎ去っていく毎日の中で、ほんの数分だけ立ち止まり、思考の糸を解きほぐすための場所。ここでは、複雑な仕組みや騒がしい通知に急かされることはありません。ただ静かに言葉と向き合い、次に開くべき新しい扉を探すための余白だけが用意されています。
+          </p>
+
+          <p>
+            紅茶の湯気がゆっくりと立ち上り、窓の外では夕暮れの風が木々の葉を揺らしています。画面の隅で刻まれる時計の秒針を眺めながら、今日という一日の出来事を静かに思い返してみましょう。たとえ小さな一歩であっても、自分のペースで歩んだ時間は確かな記憶となって残ります。この素朴で四角い枠組みのページが、あなたの毎日の始まりと終わりに、穏やかな静寂と小さな星明かりを添えることができれば幸いです。
+          </p>
+        </div>
+
+        <hr class="retro-hr mt-7 mb-4" />
+
+        <!-- Pie del artículo estilo 2000 -->
+        <div class="flex items-center justify-between text-xs text-sage-dark">
+          <span>★ 最後までお読みいただきありがとうございます。</span>
+          <span class="font-mono2k">[ EOF ]</span>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <!-- Sección inferior debajo de todo el texto con el embed exacto de Tenor en marco recto 0px -->
+  <footer class="w-full max-w-3xl flex flex-col items-center">
+    <div class="w-full max-w-[300px] bg-mintcard retro-box p-2">
+      <div class="bg-mintbar border-b border-sage px-2 py-1 mb-2 text-[11px] text-sage-deep flex items-center justify-between">
+        <span>添付画像.gif</span>
+        <span>[1.2:1]</span>
+      </div>
+      <div class="border border-sage-light bg-white">
+        <div class="tenor-gif-embed" data-postid="5332780545471097334" data-share-method="host" data-aspect-ratio="1.2" data-width="100%"><a href="https://tenor.com/view/grant-yapping-lucky-star-speech-bubble-gif-5332780545471097334">Grant Yapping Sticker</a>from <a href="https://tenor.com/search/grant-stickers">Grant Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      </div>
+    </div>
+
+    <div class="mt-5 text-[11px] text-sage-deep tracking-wider text-center">
+      Copyright (C) 緑星スタートページ All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Script para reloj en tiempo real estilo 2000 y atajo de teclado "/" -->
+  <script>
+    (function () {
+      const dateEl = document.getElementById('jp-date');
+      const clockEl = document.getElementById('jp-clock');
+      const searchInput = document.getElementById('search-input');
+      const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+
+      function updateClock() {
+        const now = new Date();
+        const y = now.getFullYear();
+        const m = String(now.getMonth() + 1).padStart(2, '0');
+        const d = String(now.getDate()).padStart(2, '0');
+        const w = weekdays[now.getDay()];
+
+        const hh = String(now.getHours()).padStart(2, '0');
+        const mm = String(now.getMinutes()).padStart(2, '0');
+        const ss = String(now.getSeconds()).padStart(2, '0');
+
+        if (dateEl) dateEl.textContent = `${y}年${m}月${d}日(${w})`;
+        if (clockEl) clockEl.textContent = `${hh}:${mm}:${ss}`;
+      }
+
+      updateClock();
+      setInterval(updateClock, 1000);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === '/' && document.activeElement !== searchInput) {
+          e.preventDefault();
+          searchInput.focus();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
